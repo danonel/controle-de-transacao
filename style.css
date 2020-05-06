@@ -1,0 +1,190 @@
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --positivo: #2ecc71;
+  --negativo: #c0392b;
+  --saldo: #244e86
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to top, #ff4000, #ffa500 130%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  color: #1a1717;
+}
+
+.container {
+  margin: 0px auto;
+  width: 350px;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--saldo);
+}
+
+h3 {
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 10px;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin:5px 0;
+}
+
+.money.plus {
+  color: var(--positivo);
+}
+
+.money.minus {
+  color:var(--negativo);
+}
+
+label {
+  display: inline-block;
+  margin: 5px 0;
+}
+
+input[type='text'],
+input[type='number'] {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #1a1717;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 15px 0 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.transactions {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.transactions li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.transactions li.plus {
+  border-right: 5px solid var(--positivo);
+}
+
+.transactions li.minus {
+  border-right: 5px solid var(--negativo);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.transactions li:hover .delete-btn {
+  opacity: 1;
+}
+
+/* toast  */ 
+
+.toast{
+  position: fixed;
+  top: 30px;
+  left: 90%;
+  right: 0;
+  margin: auto;
+  border: 0;
+  max-width: 150px;
+  padding: 6px;
+  background-color: #1a1717;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, left 0.3s, visibility 0.3s ;
+}
+
+.toast--created{
+  background-color: #00c02b;
+  border-color: #009d23;
+}
+
+.toast--removed{
+  background-color: #d50000;
+  border-color: #ba0000;
+}
+.toast--visible{
+  left: 50%;
+  opacity: 1; 
+  visibility: visible;
+}
+
